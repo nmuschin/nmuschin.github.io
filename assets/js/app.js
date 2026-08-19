@@ -209,7 +209,7 @@
       const el = document.getElementById(id);
       if (!el) return;
       el.href = href;
-      if (id === "email-footer") el.textContent = text;
+      if (id === "email-footer") el.textContent = "Email";
     });
   }
 
