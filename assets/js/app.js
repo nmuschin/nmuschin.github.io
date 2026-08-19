@@ -200,10 +200,24 @@
     });
   }
 
+  /* ---------- Email obfuscation ---------------------------------------- */
+  function wireEmail() {
+    const u = "nathan", d = "nathanmuschinske.com";
+    const href = "mailto:" + u + "@" + d;
+    const text = u + "@" + d;
+    ["email-cta", "email-footer"].forEach(function (id) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.href = href;
+      if (id === "email-footer") el.textContent = text;
+    });
+  }
+
   /* ---------- Init ----------------------------------------------------- */
   document.addEventListener("DOMContentLoaded", function () {
     const yr = document.getElementById("year");
     if (yr) yr.textContent = new Date().getFullYear();
+    wireEmail();
     buildCards();
     observeReveals();
     initNav();
